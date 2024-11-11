@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://db.onlinewebfonts.com/c/87d6d87addafe5ecdd32d0f1625333e5?family=Neuropol" rel="stylesheet">
+    <title>ZUDIO - Kids' Collection</title>
+    <style>
+      /* Base styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+       /* Header styles */
+        header {
+            background-color: #030303;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+		/*Nav-style*/
+		nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            background-color: #e8e8e8; /* Dark black background */
+            padding: 1rem 0;
+            margin: 0;
+            border-bottom: 0px solid #030303; /* Added bottom border for style */
+        }
+        nav ul li a {
+            color: #030303;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        nav ul li a:hover {
+            background-color: #FF9933; /* Hover effect with contrasting color */
+            color: #000; /* Invert text color on hover */
+            border-radius: 5px; /* Slight rounded corners on hover */
+        }
+		.nav-font{
+		font-family:"Neuropol";
+		font-size:bold;
+		}
+        /* Main content styles */
+        main {
+            padding: 2rem 0;
+        }
+        .hero {
+            background-color: #000080;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .category-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .category-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .category-card h3 {
+            padding: 1rem;
+            margin: 0;
+        }
+         /* Footer styles */
+        footer {
+            background-color: #0f0f0f;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+		
+        /* Same CSS styling for all pages */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .product-card img {
+            max-width: 100%;
+            height: 300px;
+            border-radius: 5px;
+        }
+        .product-name {
+			font-family:"Neuropol";
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .product-price {
+			font-family:"Neuropol";
+            font-size: 16px;
+            color: #888;
+        }
+        .add-to-cart {
+            background-color: #ff4081;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .add-to-cart:hover {
+            background-color: #e91e63;
+        }
+		.section-title{
+			font-family:"Neuropol";
+		}
+		/*cart button*/
+		.add-to-cart {
+            background-color: #FF9933;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+			font-family:"Neuropol";
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .add-to-cart:hover {
+            background-color: #CC7A29;
+        }
+        /* Cart button styles */
+         .add-to-cart {
+            background-color: #FF9933;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .add-to-cart:hover {
+            background-color: #CC7A29;
+        }
+        /* Cart button styles */
+        #cart-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #FF9933;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 50%;
+        }
+        #cart-button i {
+            margin-right: 5px;
+        }
+        #cart-button:hover {
+            background-color: #CC7A29;
+        }
+		
+        /* Cart Modal Styles */
+        #cart-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        #cart-items {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+		.remove-item {
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .cart-total {
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: right;
+        }
+        .checkout-btn {
+            background-color: #FF9933;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            border-radius: 5px;
+        }
+        .checkout-btn:hover {
+            background-color: #CC7A29;
+        }
+        /* Close button for cart modal */
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 18px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+		.category-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .category-tab {
+            background-color: #e8e8e8;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            font-family: "Neuropol";
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .category-tab.active {
+            background-color: #FF9933;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+   <header>
+        <div class="container">
+            <div class="logo"><a href="zudio-multipage-index.html"><img src="C:\Users\gnanesh\Downloads\logo_300x300.webp" alt="logo"></a></div>
+        </div>
+    </header>
+    <nav class="nav-font">
+        <ul>
+            <li><a href="zudio-multipage-index.html">Home</a></li>
+            <li><a href="zudio-category-page-men.html">Men</a></li>
+            <li><a href="zudio-category-page-women.html">Women</a></li>
+            <li><a href="zudio-category-page-kids.html">Kids</a></li>
+            <li><a href="zudio-category-page-accessories.html">Accessories</a></li>
+            <li><a href="zudio-category-page-fashion.html">Fashion</a></li>
+        </ul>
+    </nav>
+	 <main class="container">
+        <center><h1 class="section-title">Kid's Collection</h1></center>
+        <div class="category-tabs">
+            <button class="category-tab active" onclick="showCategory('all')">All</button>
+            <button class="category-tab" onclick="showCategory('boys')">Boys</button>
+            <button class="category-tab" onclick="showCategory('girls')">Girls</button>
+        </div>
+        <div class="product-grid" id="product-grid"></div>
+    </main>
+	
+	 <!-- Cart Button -->
+    <button id="cart-button" onclick="toggleCart()">
+        🛒 <span class="cart-count" id="cart-count">0</span>
+    </button>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal">
+        <button class="close-cart" onclick="toggleCart()">×</button>
+        <h2>Your Cart</h2>
+		
+        <div id="cart-items"></div>
+        <div id="cart-total" class="cart-total"></div>
+        <a href="zudio-checkout-page.html"><button class="checkout-btn" onclick="goToCheckout()">Proceed to Checkout</button></a>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="container">
+        <div id="product-grid" class="product-grid"></div>
+    </div>
+
+    <!-- Include footer from index.html -->
+	<footer>
+        <p>&copy; 2024 ZUDIO. All rights reserved.</p>
+    </footer>
+   
+    <script>
+        // Kids' products data
+         const products = [
+            // Boys' products
+            { id: 201, name: "Boys' T-shirt", price: 399, image: "C:/Users/gnanesh/Downloads/Boys T-shirt 2 .JPG", category: "boys" },
+            { id: 202, name: "Boys' Jeans", price: 599, image: "C:/Users/gnanesh/Downloads/Boys Jeans  (1).JPG", category: "boys" },
+            { id: 203, name: "Boys' Shorts", price: 349, image: "C:/Users/gnanesh/Downloads/Boys shorts .JPG", category: "boys" },
+            { id: 204, name: "Boys' Party Wear", price: 1299, image: "C:/Users/gnanesh/Downloads/Boys party wear .JPG", category: "boys" },
+            { id: 205, name: "Boys' Kurta Set", price: 899, image: "C:/Users/gnanesh/Downloads/Kids kurta .JPG", category: "boys" },
+            { id: 206, name: "Boys' Sweater", price: 799, image: "C:/Users/gnanesh/Downloads/Kids sweater .JPG", category: "boys" },
+            { id: 207, name: "Boys' Pajama Set", price: 699, image: "C:/Users/gnanesh/Downloads/Kids paijama.JPG", category: "boys" },
+            { id: 208, name: "Boys' Formal Shirt", price: 599, image: "C:/Users/gnanesh/Downloads/Kids formal shirt.JPG", category: "boys" },
+            
+            
+            // Girls' products
+            { id: 301, name: "Girls' Girls Ribbed Jersey Dresses", price: 799, image: "C:/Users/gnanesh/Downloads/Girls ribbed jersey dress .JPG", category: "girls" },
+            { id: 302, name: "Girls' Skirt", price: 449, image: "C:/Users/gnanesh/Downloads/Girls skirt .JPG", category: "girls" },
+            { id: 303, name: "Girls' Lehenga", price: 1499, image: "C:/Users/gnanesh/Downloads/Girls lehenga .JPG", category: "girls" },
+            { id: 304, name: "Girls' Jumpsuit", price: 749, image: "C:/Users/gnanesh/Downloads/Girls jumpsuit .JPG", category: "girls" },
+            { id: 305, name: "Girls' Hair Accessories Set", price: 299, image: "C:/Users/gnanesh/Downloads/girls hair accessories set.JPG", category: "girls" },
+            { id: 306, name: "Girls' T-shirt", price: 399, image: "C:/Users/gnanesh/Downloads/Girls ts.JPG", category: "girls" },
+            { id: 307, name: "Girls' Jeans", price: 599, image: "C:/Users/gnanesh/Downloads/Girls je.JPG", category: "girls" },
+            
+        ];
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            cart.push(product);
+            updateCart();
+            alert(`${product.name} added to cart!`);
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        function updateCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            displayCart();
+        }
+
+        function updateCartCount() {
+            const cartCount = document.getElementById('cart-count');
+            cartCount.textContent = cart.length;
+        }
+
+        function displayProducts(category = 'all') {
+            const productGrid = document.getElementById('product-grid');
+            productGrid.innerHTML = ''; // Clear existing products
+            products.forEach(product => {
+                if (category === 'all' || product.category === category) {
+                    const productCard = document.createElement('div');
+                    productCard.classList.add('product-card');
+                    productCard.innerHTML = `
+                        <img src="${product.image}" alt="${product.name}" class="product-image">
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="product-price">₹${product.price}</p>
+                        <button class="add-to-cart" onclick="addToCart(${product.id})">Add to Cart</button>
+                    `;
+                    productGrid.appendChild(productCard);
+                }
+            });
+        }
+
+        function showCategory(category) {
+            // Update active tab
+            document.querySelectorAll('.category-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Display products for the selected category
+            displayProducts(category);
+        }
+
+        function displayCart() {
+            const cartItemsDiv = document.getElementById('cart-items');
+            const cartTotalDiv = document.getElementById('cart-total');
+            
+            cartItemsDiv.innerHTML = '';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <span>${item.name}</span>
+                    <span>₹${item.price}</span>
+                    <button class="remove-item" onclick="removeFromCart(${index})">Remove</button>
+                `;
+                cartItemsDiv.appendChild(cartItem);
+                total += item.price;
+            });
+
+            cartTotalDiv.textContent = `Total: ₹${total}`;
+        }
+
+        function toggleCart() {
+            const cartModal = document.getElementById('cart-modal');
+            cartModal.style.display = cartModal.style.display === 'none' || cartModal.style.display === '' ? 'block' : 'none';
+            if (cartModal.style.display === 'block') {
+                displayCart();
+            }
+        }
+
+        function goToCheckout() {
+            window.location.href = 'checkout.html';
+        }
+
+        // Initialize the product display and cart count
+        displayProducts();
+        updateCartCount();
+    </script>
+</body>
+</html>
